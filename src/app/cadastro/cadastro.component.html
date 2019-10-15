@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="kt-portlet">
+        <div class="kt-portlet__head">
+          <div class="kt-portlet__head-caption">
+            <div class="kt-portlet__head-title">
+              <span class="kt-portlet__head-icon kt-hide">
+                <i class="la la-gear"></i>
+              </span>
+              <h3 class="kt-portlet__head-text">
+                Default Form Layout
+              </h3>
+            </div>
+          </div>
+        </div>
+        <!--begin::Form-->
+        <form class="kt-form">
+          <div class="kt-portlet__body">
+            <div class="kt-form__section kt-form__section--first">
+              <div class="form-group kt-form__group">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Enter full name">
+                </mat-form-field>
+              </div>
+              <div class="form-group kt-form__group">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Enter email" type="number" appCampoColorido valorInput="{{valorInput}}" [(ngModel)]="valorInput" name="valorInput" required>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div>
+            <!-- <button> click-me </button> -->
+          </div>
+          <div class="kt-portlet__foot">
+            <div class="kt-form__actions kt-form__actions">
+              <button mat-raised-button color="primary" appCampoColorido >Submit</button>&nbsp;
+              <button mat-raised-button type="reset">Cancel</button>
+            </div>
+          </div>
+        </form>
+        <!--end::Form-->
+      </div>
+    </div>
+  </div>
+  
+</div>
+{{valorInput}}
