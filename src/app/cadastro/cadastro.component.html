@@ -27,7 +27,7 @@
                 </mat-error>
               </mat-form-field>
               <mat-form-field>
-                <input matInput placeholder="CNPJ/CPF" type="text" formControlName="cnpj_cpf" appCampoColorido valorInput="{{cnpj_cpf}}" [(ngModel)]="cnpj_cpf" [(maxlength)]="maxlength_cnpj"> <!--(blur)="cnpj_cpf = format(cnpj_cpf)"-->
+                <input matInput placeholder="CNPJ/CPF" type="text" formControlName="cnpj_cpf" appCampoColorido valorInput="{{cnpj_cpf}}" [(ngModel)]="cnpj_cpf" [(maxlength)]="maxlength_cnpj"> <!--(blur)="cnpj_cpf = format(cnpj_cpf)" x-->
                 <mat-error *ngIf="isControlHasError('cnpj_cpf','required')">
                   <strong>{{message_required}}</strong>
                 </mat-error>
