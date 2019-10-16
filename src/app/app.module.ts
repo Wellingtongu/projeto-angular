@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
 
@@ -54,7 +54,7 @@ import { CampoColoridoDirective } from './campo-colorido.directive';
     CampoColoridoDirective
   ],
   imports: [
-
+	ReactiveFormsModule,
 	FormsModule,
     MatInputModule,
 		MatFormFieldModule,

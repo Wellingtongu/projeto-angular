@@ -8,11 +8,17 @@ import { AbstractControl, Validators } from '@angular/forms';
 export class CampoColoridoDirective {
 
   @Input() valorInput: string;
+  @Input() valorInputnome: string;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {
 
   }
 
+   
+  ngOnInit() {
+    // this.FormConsultor();
+
+  }
 
   // @HostListener('focus') onFocus() {
   //   this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'yellow');
@@ -87,5 +93,10 @@ export class CampoColoridoDirective {
     }
     return false
   }
+
+
+ 
+
+
 
 }
