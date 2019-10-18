@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { maiorQue10 } from '../validators/maior-que-10';
+import { cpfCnpjValidator } from '../validators/validacpf';
 
 @Component({
   selector: 'app-cadastro',
@@ -7,12 +9,25 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent {
+
+  prazos = [];
+  tipo: string;
+
+
+
+  tipos = [
+    { value: 'imovel', viewValue: 'Imóvel' },
+    { value: 'residencial', viewValue: 'Residencial' },
+    { value: 'comercial', viewValue: 'Comercial' }
+  ];
+
   loading = false;
   Form: FormGroup;
   public message_required = "Campo obrigatório";
   public email_invalid = "Email Invalido";
   public message_minLength = "digite no minimo 3 caracteres";
   public message_maxlength = "maximo de 30 caracteres";
+  public message_cpfCnpjValidator = "CPF ou CNPJ Invalido";
   errors: any = [];
   fone = '';
   cnpj_cpf = '';
@@ -23,6 +38,7 @@ export class CadastroComponent {
   val: any;
   v: any;
   maxlength_cnpj = 14;
+
 
   constructor(private fb: FormBuilder) {
 
@@ -65,6 +81,25 @@ export class CadastroComponent {
         Validators.required,
         Validators.minLength(3),
         // Validators.maxLength(14)
+        cpfCnpjValidator,
+        maiorQue10
+      ])
+      ],
+
+      tipo: ['', Validators.compose([
+        Validators.required,
+      ])
+      ],
+      valor: ['', Validators.compose([
+        Validators.required,
+      ])
+      ],
+      valor_financiamento: ['', Validators.compose([
+        Validators.required,
+      ])
+      ],
+      prazo: ['', Validators.compose([
+        Validators.required,
       ])
       ],
     });
@@ -89,6 +124,25 @@ export class CadastroComponent {
   onSubmit(data) {
     console.log(`dados=>  ${data}`);
 
+  }
+
+  Tiposelected($event) {
+    this.prazos = [];
+
+    if ($event === "imovel") {
+      for (let index = 1; index <= 30; index++) {
+        this.prazos.push(
+          { value: index, viewValue: index + " Ano (s)" }
+        )
+      }
+    }
+    else if ($event === "residencial" || $event === "comercial") {
+      for (let index = 1; index <= 10; index++) {
+        this.prazos.push(
+          { value: index, viewValue: index + " Ano (s)" }
+        )
+      }
+    }
   }
 
 }

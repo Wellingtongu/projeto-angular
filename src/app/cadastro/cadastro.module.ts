@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { MatSliderModule } from '@angular/material/slider';
 import { CampoColoridoDirective } from '../campo-colorido.directive';
 
 @NgModule({
@@ -8,7 +7,6 @@ import { CampoColoridoDirective } from '../campo-colorido.directive';
     CampoColoridoDirective
   ],
   imports: [
-    // MatSliderModule,
     CommonModule
   ]
 })

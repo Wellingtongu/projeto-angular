@@ -9,7 +9,7 @@ export class CampoColoridoDirective {
 
   @Input() valorInput: string;
   @Input() valorInputnome: string;
-
+  cnpj_cpf: any;
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {
 
   }
@@ -24,21 +24,27 @@ export class CampoColoridoDirective {
   //   this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'yellow');
   // }
 
-  @HostListener('blur') onBlur() {
-    if(this.validarCpfCnpj(this.valorInput)){
-      alert("Parabens CPF valido")
-    }else{
-      alert("CPF Invalido tente novamente")
-    }
-  }
+  // @HostListener('blur') onBlur() {
+  //   if(this.validarCpfCnpj(this.valorInput)){
+  //     alert("Parabens CPF valido")
+  //   }else{
+  //     alert("CPF Invalido tente novamente")
+  //   }
+  // }
   
   // @HostListener('click') onClick(e) {
   //   console.log(e)
   // }
 
-  // @HostListener('click') onClick(){
-  //   alert("click  " + this.valorInput)
-  // }
+  @HostListener('click') onClick(){
+    if(this.validarCpfCnpj(this.valorInput)){
+      alert("Parabens CPF valido")
+    }else{
+  
+      alert("CPF Invalido tente novamente")
+    }
+
+  }
 
   validarCpfCnpj(valorInput): boolean {
     if (this.valorInput.length <= 11) {
