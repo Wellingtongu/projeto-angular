@@ -1,7 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { maiorQue10 } from '../validators/maior-que-10';
 import { cpfCnpjValidator } from '../validators/validacpf';
+// import { MatDialog } from '@angular/material';
+import { ModalComponent } from '../modal/modal.component';
+import { MatDialog } from '@angular/material';
+import { NewModalComponent } from '../new-modal/new-modal.component';
+
+
+
 
 @Component({
   selector: 'app-cadastro',
@@ -12,7 +19,7 @@ export class CadastroComponent {
 
   prazos = [];
   tipo: string;
-
+  nome = "wellington";
 
 
   tipos = [
@@ -36,11 +43,21 @@ export class CadastroComponent {
   pureResult: any;
   maskedId: any;
   val: any;
-  v: any;
-  maxlength_cnpj = 14;
+    v: any;
+    maxlength_cnpj = 14;
+
+  // modal example
+  dialogRef: any;
 
 
-  constructor(private fb: FormBuilder) {
+
+
+  variavelteste = "wellington lindão";
+
+  constructor(private fb: FormBuilder,
+    // modal example
+    public dialog: MatDialog
+  ) {
 
   }
 
@@ -48,6 +65,36 @@ export class CadastroComponent {
     this.FormConsultor();
 
   }
+
+  // modal example
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: '250px',
+      data: { name: "well", animal: "teste" }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed => ' + result);
+    });
+  }
+
+
+  openDialognewmodal(): void {
+    const dialogRef = this.dialog.open(NewModalComponent, {
+      width: '250px',
+      // data: { name: "well", animal: "teste" }
+      data: this.variavelteste
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed => ' + result);
+    });
+  }
+
+
+  // modal example
 
   FormConsultor() {
     // demo message to show
@@ -144,5 +191,26 @@ export class CadastroComponent {
       }
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

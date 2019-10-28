@@ -43,17 +43,31 @@ import {
 	MatBottomSheetRef,
 	MAT_DATE_LOCALE,
 	MAT_DATE_FORMATS,
+	MatDialogModule,
 
 } from '@angular/material';
 import { CampoColoridoDirective } from './campo-colorido.directive';
+import { ModalComponent } from './modal/modal.component';
+import { NewModalComponent } from './new-modal/new-modal.component';
+import { InputComponentComponent } from './input-component/input-component.component';
+import { MenuComponent } from './menu/menu.component';
+import { NewpageComponent } from './newpage/newpage.component';
+import {NgxMaskModule} from 'ngx-mask'
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroComponent,
-    CampoColoridoDirective
+    CampoColoridoDirective,
+   ModalComponent,
+   NewModalComponent,
+   InputComponentComponent,
+   MenuComponent,
+   NewpageComponent,
+   
   ],
   imports: [
+	NgxMaskModule.forRoot(),
 	ReactiveFormsModule,
 	FormsModule,
     MatInputModule,
@@ -91,6 +105,9 @@ import { CampoColoridoDirective } from './campo-colorido.directive';
     BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[
+	MatDialogModule
+  ]
 })
 export class AppModule { }

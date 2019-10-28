@@ -1,105 +1,118 @@
-<!--begin::Body-->
+<app-menu></app-menu>
 <br>
 <div class="kt-login__body container">
-    <!--begin::Signin-->
-    <div class="kt-login__form">
-      <div class="kt-login__title">
-        <h3>Sou um Consultor</h3>
-      </div>
-      <form class="kt-login__form kt-form" [formGroup]="Form">
-            <div class="example-container">
-              <mat-form-field>
-                <input matInput placeholder="Nome" type="text" formControlName="nome">
-                <mat-error *ngIf="isControlHasError('nome','required')">
-                  <strong>{{message_required}}</strong>
-                </mat-error>
-                <mat-error *ngIf="isControlHasError('nome','minlength')">
-                    <strong>{{message_minLength}}</strong>
-                  </mat-error>
-                  <mat-error *ngIf="isControlHasError('nome','maxlength')">
-                      <strong>{{message_maxlength}}</strong>
-                    </mat-error>
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Cidade" type="text" formControlName="cidade">
-                <mat-error *ngIf="isControlHasError('cidade','required')">
-                  <strong>{{message_required}}</strong>
-                </mat-error>
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="CNPJ/CPF" type="text" formControlName="cnpj_cpf" [(ngModel)]="cnpj_cpf" [(maxlength)]="maxlength_cnpj"> <!--(blur)="cnpj_cpf = format(cnpj_cpf)" x-->
-                <!-- bla bla bla -->
-                <mat-error *ngIf="isControlHasError('cnpj_cpf','required')">
-                  <strong>{{message_required}}</strong>
-                </mat-error>
-                <mat-error *ngIf="!cpfCnpjValidator && cnpj_cpf != ''">
-                  <strong>{{message_cpfCnpjValidator}}</strong>
-                </mat-error>
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Endereço de email" type="email" formControlName="email">
-                <mat-error *ngIf="isControlHasError('email','required')">
-                  <strong>{{message_required}}</strong>
-                </mat-error>
-                <mat-error *ngIf="isControlHasError('email','email')">
-                  <strong>{{ email_invalid }}</strong>
-                </mat-error>
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Telefone Contato" type="text" formControlName="fone" mask="(00) 00000-0000">
-                <mat-error *ngIf="isControlHasError('fone','required')">
-                  <strong>{{message_required}}</strong>
-                </mat-error>
-              </mat-form-field>
-              <br>
-              <!-- <mat-card> -->
-                <div>
-                    <h3 class="subtitle_form">Dados do imóvel</h3>
-                </div>
-    
-                <mat-form-field>
-                    <mat-select placeholder="Tipo" formControlName="tipo" (ngModelChange)="Tiposelected($event)">
-                        <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">
-                            {{tipo.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                    <mat-error *ngIf="isControlHasError('tipo','required')">
-                      <strong>{{message_required}}</strong>
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput placeholder="Valor (R$)" type="text" formControlName="valor">
-                    <mat-error *ngIf="isControlHasError('valor','required')">
-                      <strong>{{message_required}}</strong>
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field>
-                    <input matInput placeholder="Valor Financiamento (R$)" type="text"
-                        formControlName="valor_financiamento">
-                        <mat-error *ngIf="isControlHasError('valor_financiamento','required')">
-                          <strong>{{message_required}}</strong>
-                        </mat-error>
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-select placeholder="Prazo" formControlName="prazo">
-                        <mat-option *ngFor="let prazo of prazos" [value]="prazo.value">
-                            {{prazo.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                    <mat-error *ngIf="isControlHasError('prazo','required')">
-                      <strong>{{message_required}}</strong>
-                    </mat-error>
-                </mat-form-field>
-               <br>
-    
-            <!-- </mat-card> -->
-            </div>
-            <div class="kt-login__actions">
-              <button class="btn btn-secondary btn-elevate kt-login__btn-secondary" [routerLink]="['/cadastro']" [disabled]="loading">Voltar</button>&nbsp;
-              <button type="submit" appCampoColorido valorInput="{{cnpj_cpf}}" class="btn btn-primary btn-elevate kt-login__btn-primary" [disabled]="Form.pristine || Form.invalid"
-                (click)="onSubmit(Form)">Salvar</button>
-            </div>
-      </form>
+  <div class="kt-login__form">
+    <div class="kt-login__title">
+      <h3>Sou um Consultor</h3>
     </div>
+    <form class="kt-login__form kt-form" [formGroup]="Form">
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Nome" type="text" formControlName="nome">
+          <mat-error *ngIf="isControlHasError('nome','required')">
+            <strong>{{message_required}}</strong>
+          </mat-error>
+          <mat-error *ngIf="isControlHasError('nome','minlength')">
+            <strong>{{message_minLength}}</strong>
+          </mat-error>
+          <mat-error *ngIf="isControlHasError('nome','maxlength')">
+            <strong>{{message_maxlength}}</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Cidade" type="text" formControlName="cidade">
+          <mat-error *ngIf="isControlHasError('cidade','required')">
+            <strong>{{message_required}}</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="CNPJ/CPF" type="text" formControlName="cnpj_cpf" [(ngModel)]="cnpj_cpf"
+            [(maxlength)]="maxlength_cnpj">
+
+          <mat-error *ngIf="isControlHasError('cnpj_cpf','required')">
+            <strong>{{message_required}}</strong>
+          </mat-error>
+          <mat-error *ngIf="!cpfCnpjValidator && cnpj_cpf != ''">
+            <strong>{{message_cpfCnpjValidator}}</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Endereço de email" type="email" formControlName="email">
+          <mat-error *ngIf="isControlHasError('email','required')">
+            <strong>{{message_required}}</strong>
+          </mat-error>
+          <mat-error *ngIf="isControlHasError('email','email')">
+            <strong>{{ email_invalid }}</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Telefone Contato" type="text" formControlName="fone" mask="(000-000)">
+          <mat-error *ngIf="isControlHasError('fone','required')">
+            <strong>{{message_required}}</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+
+        <div>
+          <h3 class="subtitle_form">Dados do imóvel</h3>
+        </div>
+
+        <mat-form-field>
+          <mat-select placeholder="Tipo" formControlName="tipo" (ngModelChange)="Tiposelected($event)">
+            <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">
+              {{tipo.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="isControlHasError('tipo','required')">
+            <strong>{{message_required}}</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Valor (R$)" type="text" formControlName="valor">
+          <mat-error *ngIf="isControlHasError('valor','required')">
+            <strong>{{message_required}}</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Valor Financiamento (R$)" type="text" formControlName="valor_financiamento">
+          <mat-error *ngIf="isControlHasError('valor_financiamento','required')">
+            <strong>{{message_required}}</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Prazo" formControlName="prazo">
+            <mat-option *ngFor="let prazo of prazos" [value]="prazo.value">
+              {{prazo.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="isControlHasError('prazo','required')">
+            <strong>{{message_required}}</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+
+
+      </div>
+      <div class="kt-login__actions">
+        <button class="btn btn-secondary btn-elevate kt-login__btn-secondary" [routerLink]="['/cadastro']"
+          [disabled]="loading">Voltar</button>&nbsp;
+        <button type="submit" appCampoColorido valorInput="{{cnpj_cpf}}"
+          class="btn btn-primary btn-elevate kt-login__btn-primary" [disabled]="Form.pristine || Form.invalid"
+          (click)="onSubmit(Form)">Salvar</button>&nbsp;
+
+      </div>
+    </form>
+
+  </div>
+  <div>
+    <br>
+
+    <app-input-component [tipos]="tipos[1]" [showedit]="true" [nome]="nome"></app-input-component>
+
+    <button class="btn btn-secondary btn-elevate kt-login__btn-secondary" [routerLink]="['/modal']">modal</button>&nbsp;
+    <button class="btn btn-secondary btn-elevate kt-login__btn-secondary" (click)="openDialog()">Abrir modal</button>&nbsp;
+    <button class="btn btn-secondary btn-elevate kt-login__btn-secondary" (click)="openDialognewmodal()">Abrir new modal</button>&nbsp; 
+    
+
+  </div>
 </div>
-  
