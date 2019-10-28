@@ -1,0 +1,10 @@
+
+<h1>chamou modal</h1>
+<h2>{{data.animal}}</h2>
+<h2>{{data.name}}</h2>
+
+<app-input-component [nome]="nome" [tipos]="tipos[0]" [showedit]="false"></app-input-component>
+
+<button (click)="closeClick()">cancelar</button>&nbsp;
+<button (click)="openClick()">proximo</button>&nbsp;
+<button (click)="inputval()">val input</button>&nbsp;
