@@ -46,7 +46,7 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Telefone Contato" type="text" formControlName="fone" mask="(000-000)">
+          <input matInput placeholder="Telefone Contato" type="text" formControlName="fone" mask="(00) 00000-0000">
           <mat-error *ngIf="isControlHasError('fone','required')">
             <strong>{{message_required}}</strong>
           </mat-error>
@@ -107,7 +107,11 @@
   <div>
     <br>
 
-    <app-input-component [tipos]="tipos[1]" [showedit]="true" [nome]="nome"></app-input-component>
+    <form>
+      <!-- <app-input-component [tipos]="tipos[1]"  [showedit]="true" [nome]="nome"></app-input-component> -->
+      <app-input-component [tipos]="tipos[1]"  [showedit]="true"></app-input-component>
+    </form>
+    
 
     <button class="btn btn-secondary btn-elevate kt-login__btn-secondary" [routerLink]="['/modal']">modal</button>&nbsp;
     <button class="btn btn-secondary btn-elevate kt-login__btn-secondary" (click)="openDialog()">Abrir modal</button>&nbsp;

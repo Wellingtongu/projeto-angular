@@ -49,10 +49,11 @@ import {
 import { CampoColoridoDirective } from './campo-colorido.directive';
 import { ModalComponent } from './modal/modal.component';
 import { NewModalComponent } from './new-modal/new-modal.component';
-import { InputComponentComponent } from './input-component/input-component.component';
 import { MenuComponent } from './menu/menu.component';
 import { NewpageComponent } from './newpage/newpage.component';
 import {NgxMaskModule} from 'ngx-mask'
+import { InputComponentComponent } from './components/input-component/input-component.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import {NgxMaskModule} from 'ngx-mask'
    InputComponentComponent,
    MenuComponent,
    NewpageComponent,
+   TableComponent
    
   ],
   imports: [

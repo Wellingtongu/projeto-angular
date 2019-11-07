@@ -22,11 +22,16 @@ export class CadastroComponent {
   nome = "wellington";
 
 
+  // tipos = [
+  //   { value: 'imovel', viewValue: 'Imóvel' },
+  //   { value: 'residencial', viewValue: 'Residencial' },
+  //   { value: 'comercial', viewValue: 'Comercial' }
+  // ];
+
   tipos = [
     { value: 'imovel', viewValue: 'Imóvel' },
-    { value: 'residencial', viewValue: 'Residencial' },
-    { value: 'comercial', viewValue: 'Comercial' }
-  ];
+    { value: '', viewValue: 'teset' },
+   ];
 
   loading = false;
   Form: FormGroup;
