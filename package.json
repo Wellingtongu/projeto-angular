@@ -36,7 +36,7 @@
         "@types/lodash": "^4.14.136",
         "angular-in-memory-web-api": "^0.8.0",
         "bootstrap": "^4.3.1",
-        "chart.js": "^2.8.0",
+        "chart.js": "^2.9.4",
         "chartist": "^0.11.3",
         "classlist.js": "^1.1.20150312",
         "core-js": "^3.1.4",
